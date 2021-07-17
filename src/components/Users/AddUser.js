@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { capitalize, isNanValue } from "../../utils";
 import Button from "../UI/Button";
 import Card from "../UI/Card";
 import classes from "./AddUser.module.css";
@@ -13,10 +14,11 @@ const AddUser = ({ onAddUser }) => {
     if (enteredName.trim().length === 0 || enteredAge.trim().length === 0) {
       return;
     }
-    if (+enteredAge < 1 || isNaN(enteredAge)) {
+    if (+enteredAge < 1 || isNanValue(enteredAge)) {
       return;
     }
-    onAddUser(enteredName, enteredAge);
+
+    onAddUser(capitalize(enteredName), enteredAge);
     setEnteredName("");
     setEnteredAge("");
   };
@@ -40,7 +42,7 @@ const AddUser = ({ onAddUser }) => {
         />
         <label htmlFor="age">Age (Years)</label>
         <input
-          type="text"
+          type="number"
           id="age"
           onChange={ageChangeHandler}
           value={enteredAge}
