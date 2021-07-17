@@ -13,4 +13,15 @@
   border: 1px solid #ccc;
   margin: 0.5rem 0;
   padding: 0.5rem;
+  border-radius: 0.5rem;
+}
+
+.users p > span {
+  font-weight: 600;
+}
+
+.users .error {
+  font-size: larger;
+  font-weight: bold;
+  text-align: center;
 }

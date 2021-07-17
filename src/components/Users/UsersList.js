@@ -9,12 +9,19 @@ const UsersList = ({ users }) => {
         <ul>
           {users.map((user) => (
             <li key={user.id}>
-              {user.name} {user.age} years old
+              <p>
+                <span>Name: </span>
+                {user.name}, <span> Age: </span>{user.age} years old
+              </p>
             </li>
           ))}
         </ul>
       )}
-      {!areUsers && <div> Users not found</div>}
+      {!areUsers && (
+        <ul>
+          <span className={classes.error}>Users not found</span>
+        </ul>
+      )}
     </Card>
   );
 };
