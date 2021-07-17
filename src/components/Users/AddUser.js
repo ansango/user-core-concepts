@@ -13,7 +13,7 @@ const AddUser = ({ onAddUser }) => {
     if (enteredName.trim().length === 0 || enteredAge.trim().length === 0) {
       return;
     }
-    if (+enteredAge < 1) {
+    if (+enteredAge < 1 || isNaN(enteredAge)) {
       return;
     }
     onAddUser(enteredName, enteredAge);
